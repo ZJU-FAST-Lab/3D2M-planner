@@ -1,0 +1,13 @@
+<launch>
+
+
+    <node pkg="globalmap_gene" name="globalmap_gene_node" type="globalmap_gene_node" output="screen">
+    	<param name="cloud_resolution" value="0.004"/>
+
+        <remap from="/globalmap" to="/globalmap"/>
+        <!--remap from="/globalmap" to="/camera/depth_registered/points"/-->
+
+    </node>
+
+
+</launch>

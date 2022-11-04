@@ -1,0 +1,16 @@
+{
+    "name": "Unity.SysrootPackage.Editor",
+    "references": [
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "versionDefines": [
+        {
+            "name": "Unity",
+            "expression": "(0,2022.2.0a10)",
+            "define": "IL2CPP_LEGACY_API_PRESENT"
+        }
+    ]
+}

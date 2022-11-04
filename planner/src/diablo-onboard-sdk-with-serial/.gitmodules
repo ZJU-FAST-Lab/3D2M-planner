@@ -1,0 +1,5 @@
+
+[submodule "serial"]
+	path = serial
+	url = https://github.com/nameless1379/serial.git
+    branch = master

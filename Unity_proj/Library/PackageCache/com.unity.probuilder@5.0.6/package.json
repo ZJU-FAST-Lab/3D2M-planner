@@ -1,0 +1,70 @@
+{
+  "name": "com.unity.probuilder",
+  "displayName": "ProBuilder",
+  "version": "5.0.6",
+  "unity": "2019.4",
+  "description": "Build, edit, and texture custom geometry in Unity. Use ProBuilder for in-scene level design, prototyping, collision meshes, all with on-the-fly play-testing.\n\nAdvanced features include UV editing, vertex colors, parametric shapes, and texture blending. With ProBuilder's model export feature it's easy to tweak your levels in any external 3D modelling suite.\n\nIf you are using URP/HDRP, be careful to also import the corresponding sample project in the section below to get the proper materials.",
+  "keywords": [
+    "3d",
+    "model",
+    "mesh",
+    "modeling",
+    "geometry",
+    "shape",
+    "cube",
+    "blender",
+    "max",
+    "maya",
+    "fbx",
+    "obj",
+    "level",
+    "design",
+    "block",
+    "greybox",
+    "graybox",
+    "whitebox",
+    "prototype",
+    "probuilder"
+  ],
+  "samples": [
+    {
+      "displayName": "Universal Render Pipeline Support",
+      "description": "Shaders and materials for the Light Weight Render Pipeline.",
+      "path": "Samples~/UniversalRenderPipeline"
+    },
+    {
+      "displayName": "High Definition Render Pipeline Support",
+      "description": "Shaders and materials for the High Definition Render Pipeline.",
+      "path": "Samples~/HDRP"
+    },
+    {
+      "displayName": "Editor Examples",
+      "description": "Scripts demonstrating how to integrate new functionality into the ProBuilder editor window.",
+      "path": "Samples~/Editor"
+    },
+    {
+      "displayName": "Runtime Examples",
+      "description": "Scripts showing how to create and modify meshes at runtime.",
+      "path": "Samples~/Runtime"
+    }
+  ],
+  "dependencies": {
+    "com.unity.settings-manager": "1.0.3",
+    "com.unity.modules.physics": "1.0.0",
+    "com.unity.modules.imgui": "1.0.0"
+  },
+  "repository": {
+    "url": "https://github.com/Unity-Technologies/com.unity.probuilder.git",
+    "type": "git",
+    "revision": "a2e0f7904211f195c1c7661cdbed49fdc4a4130d"
+  },
+  "_upm": {
+    "changelog": "### Bug Fixes\r\n\r\n- [case: 1407518] Fixed issue where 'Detach Faces' action would not undo correctly.\r\n- [case: 1393809] Fixed move tool when working with small scales.\r\n- [case: 1395936] Fixed Editor crash when opening a EditorWindow dropdown (MacOS).\r\n- [case: 1389642] Fixed Grid snapping not working properly with EditShape Tool.\r\n- [case: 1368465] Fixed issue where extruding an element orthogonally to their normal would result in some additional extrusion along the normal.\r\n- [case: 1369443] Fixed SerializedObjectNotCreatableException errors in the console with Shape Tool.\r\n- [case: 1348463] Fixed issue where instantiating a prefab would not build UV2s.\r\n- [case: 1348434] Added more detailed instructions in the missing UV2 warning log.\r\n- Fix some styling issues with Overlays in 21.2\r\n- [case: 1350635] Fixed crash when using CSG operations.\r\n- [case: 1405226] Fixed tooltips inconsistently showing and hiding.\r\n- [case: 1407039] Fixed stair creation tool missing the inner radius parameter.\r\n- [case: PBLD-3] Fixed vertex manipulation tools locking grid snapping settings on activation.\r\n- [case: PBLD-9] Fixed issue where adding and then removing Collider or Trigger behaviours would cause meshes to not render in builds.\r\n- [case: PBLD-7] Fixed ProBuilderize action not handling redo operation correctly.\r\n- [case: PBLD-6] Fixed unnecessary reimport of all project textures on package install.\r\n- [case: PBLD-11] Fixed Poly Shape Tool missing an undo step after setting height.\r\n- [case: PBLD-13] Fixed a bug where a newly created shape would not be redrawn with Redo. \r\n- [case: PBLD-15] Fixed a bug with URP that prevented some items from being selectable in the Game view. \r\n\r\n### Changes\r\n\r\n- Updates to API documentation\r\n- Cylinder shape is allowed to have 3 sides, and can have an odd number of sides."
+  },
+  "relatedPackages": {
+    "com.unity.probuilder.tests": "5.0.6"
+  },
+  "upmCi": {
+    "footprint": "b6516dd50160cf2618444cee8ad0bcda3570db3a"
+  }
+}

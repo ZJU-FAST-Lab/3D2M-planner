@@ -1,0 +1,16 @@
+{
+    "name": "Unity.ProGrids.Runtime.Tests",
+    "references": [
+        "Unity.ProGrids"
+    ],
+    "includePlatforms": [],
+	"optionalUnityReferences": [
+        "TestAssemblies"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": []
+}

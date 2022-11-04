@@ -1,0 +1,29 @@
+<launch>
+
+  <arg name="odom_topic" value="/ekf/ekf_odom" />
+  <arg name="traj_topic" value="/trajectory" />
+  <!-- <arg name="cmd_topic" value="car/ackermann_cmd" /> -->
+  <arg name="cmd_topic" value="diablo_cmd" />
+  <arg name="cmd_topic_geo" value="diablo_cmd_geo" />
+  <arg name="sim" default="false" />
+  <rosparam command="load" file="$(find mpc)/config/param.yaml" />
+
+  <node pkg="mpc" name="mpc_controller_node" type="mpc_controller_node" output="screen">
+    <remap from="cmd"     to="$(arg cmd_topic)"/>
+    <remap from="cmd_geo" to="$(arg cmd_topic_geo)"/>
+    <remap from="odom" to="$(arg odom_topic)"/>
+    <remap from="traj" to="$(arg traj_topic)"/>
+  </node>
+  
+  <group if="$(arg sim)">
+    <node pkg="kimatic_simulator" type="kimatic_simulator_node" name="kimatic_simulator_node" output="screen" required="true">
+      <remap from ="~command" to="$(arg cmd_topic)"/>
+      <param name="simulator/max_omega" value="2.4"  type="double"/>
+      <param name="simulator/max_speed" value="5.0"  type="double"/>
+      <remap from="~odometry" to="$(arg odom_topic)"/>
+    </node>
+
+    <!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(find mpc)/rviz/default.rviz" required="true" /> -->
+  </group>
+
+</launch>

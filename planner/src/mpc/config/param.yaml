@@ -1,0 +1,40 @@
+mpc:
+  du_threshold: 0.001
+  max_iter: 150
+  # control v minco
+  dt: 0.02
+  predict_steps: 50
+  # control v liuming
+  # dt: 0.02
+  # predict_steps: 50
+  delay_num: 0
+  # control a
+  # predict_steps: 50
+  # delay_num: 10
+  max_omega: 2.3
+  max_domega: 3.0
+  max_speed: 10.0
+  min_speed: -10.0
+  max_accel: 5.0
+  in_test: false
+  in_mocap: true
+  in_bk: false
+  control_a: false
+  # x, y, v yaw
+  # control v minco
+  matrix_q: [50.0, 50.0, 2.5, 0.5]
+  matrix_r: [0.1, 0.01]
+  matrix_rd: [0.01, 0.5]
+   # control v liuming
+  # matrix_q: [50.0, 50.0, 2.5, 0.5]
+  # matrix_r: [0.1, 0.01]
+  # matrix_rd: [0.01, 0.5]
+  # control a
+  # matrix_q: [1.0, 1.0, 5.0, 0.5]
+  # matrix_r: [0.01, 0.01]
+  # matrix_rd: [0.01, 0.01]
+  # test_traj: "/home/xulong/diablo-planner/data/liuming.txt"
+  # test_traj: "/home/xulong/diablo-planner/data/trajs.txt"
+  test_traj: "/home/lantern/ROS_workspace/diablo-planner/data/trajs.txt"
+  tv_dist: 0.5
+    

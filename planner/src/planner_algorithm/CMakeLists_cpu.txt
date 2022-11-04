@@ -1,0 +1,36 @@
+cmake_minimum_required(VERSION 3.0.2)
+project(planner_algorithm)
+
+find_package(catkin REQUIRED COMPONENTS
+  map_manager
+
+  geometry_msgs
+  roscpp
+  rospy
+  sensor_msgs
+  std_msgs
+)
+
+find_package(Eigen3 REQUIRED)
+find_package(PCL 1.7 REQUIRED)
+
+catkin_package(
+ INCLUDE_DIRS include
+#  LIBRARIES planner_algorithm
+ CATKIN_DEPENDS map_manager geometry_msgs roscpp rospy sensor_msgs std_msgs
+#  DEPENDS system_lib
+)
+
+add_library(planner_algorithm_lib
+   src/front_end_Astar.cpp
+   #src/back_end_optimizer.cpp
+   src/back_end_optimizer_cuda.cu
+)
+
+include_directories(
+  include
+  ${catkin_INCLUDE_DIRS}
+  ${Eigen3_INCLUDE_DIRS} 
+  ${PCL_INCLUDE_DIRS}
+)
+

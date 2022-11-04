@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<launch>
+  <node pkg="read_pcd" name="read_pcd" type="read_pcd" output="screen">
+
+	  <param name="map/map_file" value="$(find read_pcd)/PCDFiles/scene20.2.pcd"/>
+	  
+	</node>
+</launch>

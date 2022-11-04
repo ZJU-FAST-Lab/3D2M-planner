@@ -1,0 +1,77 @@
+<launch>
+
+<arg name="odom_topic" default="/ekf/ekf_odom"/>
+
+
+<!-- pcs_map manager -->
+	<node pkg="planner_manager" name="scf_planner_node" type="scf_planner_node" output="screen">
+
+	  <!-- <param name="grid_resolution" value="0.1"/> -->
+	  <param name="occupancy_resolution" value="0.3"/>
+	  <param name="travelmap_resolution" value="0.3"/>
+
+	  <param name="sta_threshold"   value="1"/>
+	  <param name="debug_output"   value="false"/>
+
+	  <param name="traj_parlength"    value="1.5"/>
+	  <param name="truncation_dis"    value="2.5"/>
+
+	  <param name="min_height"    value="2.502"/>
+	  <param name="max_height"    value="3.219"/>
+	  <param name="downproj"      value="1"/>
+
+	  <param name="backcost_step_roh"  value="1"        />
+	  
+	  <param name="optimization/K"     value="8"  		/>
+	  <param name="optimization/pok"   value="0.3"		/>
+	  <param name="optimization/vmax"  value="4.0" 		/>
+	  <param name="optimization/amax"  value="0.2"		/>
+	  <param name="optimization/vmaxz" value="0.2"		/>
+	  <param name="optimization/amaxz" value="0.4"		/>
+	  <param name="optimization/rhoT"  value="1000.0"	/>
+	  <param name="optimization/rhoP"  value="20000.0"/>
+	  <param name="optimization/rhoV"  value="1000.0"	/>
+	  <param name="optimization/rhoA"  value="1000.0"	/>
+	  
+	  <remap from="~globalmap"     			to="/globalmap" />
+	  <remap from="~globalmap_vis"			to="/globalmap_vis" />
+	  <remap from="~gridmap_vis" 			to="/gridmap_vis" />
+	  <remap from="~voxel_vis"			 	to="/voxel_vis" />
+	  <remap from="~rcvmap_signal"			to="/rcvmap_signal" />
+	  <remap from="~odom"					to="$(arg odom_topic)"/>
+
+
+	  <remap from="~trajectory"			to="/trajectory" />
+	  
+	</node>
+
+<!-- trajectory server -->
+	<!-- <node pkg="planner_manager" name="traj_server" type="traj_server" output="screen">
+
+	  <remap from="~trajectory_topic"     	to="/trajectory" />
+	  <remap from="~odom" 					to="$(arg odom_topic)" />
+	  <remap from="~despoint" 				to="/des_p" />
+	  <remap from="~point/vis"  			to="/vis_p" />
+	  <remap from="~controller_cmd"  		to="/control_cmd" />
+
+	</node> -->
+
+<!-- use simulator -->
+
+    <include file="$(find fake_diablo)/launch/fake_diablo.launch">
+		<arg name="odometry_topic"  value="$(arg odom_topic)"/>
+		<arg name="init_x"  value="-10.0"/>
+		<arg name="init_y"  value="-1.0"/>
+	</include>
+
+<!-- use program code globalmap generator -->
+	<!-- <include file="$(find globalmap_gene)/launch/globalmap_gene.launch"/> -->
+
+<!-- use globalmap generated from UE4 -->
+	<!-- <include file="$(find read_pcd)/launch/run_all.launch"/> -->
+
+
+<!-- rviz -->
+    	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find map_manager)/param/default.rviz" required="true" />
+
+</launch>

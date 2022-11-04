@@ -1,0 +1,36 @@
+<launch>
+
+    <arg name="odometry_topic" />
+    <arg name="init_x" default="1.0"/>
+    <arg name="init_y" default="1.0"/>
+    <arg name="init_z" default="1.0"/>
+
+    <node pkg="fake_diablo" name="fake_diablo" type="fake_diablo" output="screen">
+            <param name="max_height" value="1.0" />
+
+            <param name="init_x" value="$(arg init_x)"/>
+            <param name="init_y" value="$(arg init_y)"/>
+            <param name="init_z" value="$(arg init_z)"/>
+
+            <remap from="~command" to="/control_cmd"/>
+            <remap from="~jump_command" to="/pcs_planner/jump_cmd"/>
+            <remap from="~odometry" to="$(arg odometry_topic)"/>
+    </node>
+
+    <node pkg="fake_diablo" name="fake_model" type="fake_model" output="screen">
+            
+            <param name="max_height" value="1.0" />
+            
+            <param name="ugv/ugv_l" value="0.01"  type="double"/>
+            <param name="ugv/ugv_w" value="0.4"  type="double"/>
+            <param name="ugv/ugv_h" value="0.3"  type="double"/>
+            <param name="ugv/mesh"  value="package://fake_diablo/param/body.STL"    type="string"/>
+            <param name="ugv/mesh2" value="package://fake_diablo/param/leg.STL"     type="string"/>
+            <param name="ugv/mesh3" value="package://fake_diablo/param/mid.STL"     type="string"/>
+            <param name="ugv/mesh4" value="package://fake_diablo/param/wheels.STL"  type="string"/>
+            <param name="ugv/frame" value="world"  type="string"/>
+            <remap from="~odom" to="$(arg odometry_topic)"/>
+            <remap from="~odom_mesh" to="diablo_model"/>
+    </node>
+
+</launch>

@@ -1,0 +1,21 @@
+{
+    "name": "Unity.Sysroot.Linux_x86_64.EditorTests",
+    "references": [
+        "Unity.SysrootPackage.Editor",
+        "Unity.Sysroot.Linux.x86_64"
+    ],
+    "optionalUnityReferences": [
+        "TestAssemblies"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "versionDefines": [
+        {
+            "name": "Unity",
+            "expression": "(0,2022.2.0a10)",
+            "define": "IL2CPP_LEGACY_API_PRESENT"
+        }
+    ]
+}

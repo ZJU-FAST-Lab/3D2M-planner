@@ -1,0 +1,19 @@
+{
+  "FileContentKeywordValidation":
+  {
+    "Keywords":
+    [
+      {
+        "Targets": "+Switch",
+        "Files":
+        [
+          "Editor/Unity.Toolchain.cs"
+        ],
+        "Patterns":
+        [
+          "ld\\.lld"
+        ]
+      }
+    ]
+  }
+}

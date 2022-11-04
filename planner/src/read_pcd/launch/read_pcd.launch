@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<launch>
+  <node pkg="read_pcd" name="read_pcd" type="read_pcd" output="screen">
+
+	  <!-- <param name="grid_resolution" value="0.1"/> -->
+	  <!-- <param name="map/map_file" value="$(find read_pcd)/PCDFiles/down.pcd"/> -->
+	  <!-- <param name="map/map_file" value="$(find read_pcd)/PCDFiles/park0.3.pcd"/> -->
+	  <!-- <param name="map/map_file" value="$(find read_pcd)/PCDFiles/park2layer0.3.pcd"/> -->
+	  <param name="map/map_file" value="$(find read_pcd)/PCDFiles/scene20.2.pcd"/>
+	  <!-- <param name="map/map_file" value="$(find read_pcd)/PCDFiles/city_t1.2.pcd"/> -->
+	  <!-- <param name="map/map_file" value="$(find read_pcd)/PCDFiles/spiral0.3_2.pcd"/> -->
+	  <!-- <param name="map/map_file" value="$(find read_pcd)/PCDFiles/indoorBigWork.pcd"/> -->
+	  <!-- <param name="map/map_file" value="$(find read_pcd)/PCDFiles/terrain1.5.pcd"/> -->
+	  <!-- <param name="map/map_file" value="$(find read_pcd)/PCDFiles/terrain1.5_2.pcd"/> -->
+	  
+	</node>
+</launch>
